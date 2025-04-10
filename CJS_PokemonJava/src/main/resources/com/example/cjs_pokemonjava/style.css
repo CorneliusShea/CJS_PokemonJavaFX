@@ -1,0 +1,63 @@
+.homePane{
+    -fx-background-image: url("https://images.wallpapersden.com/image/download/pokemon-pikachu-art_a25tbW6UmZqaraWkpJRmbmdlrWZlbWU.jpg");
+}
+
+.register-signUpPane{
+    -fx-background-color: white;
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+}
+
+.reg-signPane{
+    -fx-border-color: red;
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+}
+
+.reg-signButton{
+    -fx-border-color: black;
+    -fx-border-width: 2px;
+
+    -fx-background-color: rgba(0, 0, 255, 0.5);
+    -fx-text-fill: white;
+}
+
+.chooseYourPokemonPane{
+    -fx-background-image: url("https://wallpapercave.com/wp/wp8813120.jpg");
+    -fx-background-size: cover;
+    -fx-background-position: center;
+}
+
+.chooseYourPokemonLabel{
+    -fx-background-color: rgba(255, 0, 0, 0.5);
+
+    -fx-text-fill: white;
+}
+
+.pokemonChoiceAnchor{
+    -fx-background-color: rgba(255, 255, 255, 0.5);
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-color: black;
+}
+
+/*battle stage fxml css*/
+
+.battleAnchor{
+    -fx-background-image: url("https://static.wikia.nocookie.net/pokemon-reborn/images/3/39/Mirrorarena.png/revision/latest?cb=20220901031757");
+    -fx-background-size: cover;
+    -fx-background-position: center;
+}
+
+.moveButton{
+    -fx-background-color: rgba(187, 187, 187, 0.8);
+    -fx-background-radius: 20px;
+
+    -fx-border-style: solid;
+    -fx-border-width: 2px;
+    -fx-border-color: red;
+    -fx-border-radius: 20px;
+
+    -fx-background-insets: 0px;
+}
