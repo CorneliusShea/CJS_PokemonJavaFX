@@ -6,12 +6,17 @@ public class Pokemon
 
     private String pokemonName;
 
+    private int pokemonHealth;
+
     private int[] moves = new int[2];
 
-    public Pokemon(int pokemonID, String pokemonName, int[] moves) {
+    public Pokemon(int pokemonID, String pokemonName, int pokemonHealth, int move1_id, int move2_id) {
         this.pokemonID = pokemonID;
         this.pokemonName = pokemonName;
-        this.moves = moves;
+        this.pokemonHealth = pokemonHealth;
+
+        moves[0] = move1_id;
+        moves[1] = move2_id;
     }
 
     public int getPokemonID() {
@@ -24,5 +29,13 @@ public class Pokemon
 
     public int[] getMoves() {
         return moves;
+    }
+
+    public int getPokemonHealth() {
+        return pokemonHealth;
+    }
+
+    public void setPokemonHealth(int pokemonHealth) {
+        this.pokemonHealth = pokemonHealth;
     }
 }

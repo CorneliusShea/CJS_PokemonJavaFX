@@ -6,10 +6,13 @@ public class Move
 
     private String moveName;
 
-    public Move(int moveId, String moveName)
+    private int moveDamage;
+
+    public Move(int moveId, String moveName, int moveDamage)
     {
         this.moveId = moveId;
         this.moveName = moveName;
+        this.moveDamage = moveDamage;
     }
 
     public int getMoveId() {
@@ -18,5 +21,9 @@ public class Move
 
     public String getMoveName() {
         return moveName;
+    }
+
+    public int getMoveDamage() {
+        return moveDamage;
     }
 }
