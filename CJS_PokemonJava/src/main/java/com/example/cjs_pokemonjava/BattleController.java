@@ -1,14 +1,17 @@
 package com.example.cjs_pokemonjava;
 
+import javafx.animation.PauseTransition;
+import javafx.animation.TranslateTransition;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 
 import java.util.ArrayList;
-import java.util.Timer;
-import java.util.TimerTask;
 
 public class BattleController
 {
@@ -34,7 +37,14 @@ public class BattleController
     @FXML
     private Label damageAmt_1_label, damageAmt_2_label, moveName_1_label, moveName_2_label;
 
+    @FXML
+    private ImageView playerImage, enemyImage;
+
     private boolean endTurn = false;
+
+    private String playerPokemonImage;
+
+    private String enemyPokemonImage;
 
     public void setBattleVariables(Users currentUserInput, Pokemon playerPokemon, Pokemon enemyPokemon, Move move1, Move move2, Move enemyM1, Move enemyM2)
     {
@@ -42,13 +52,12 @@ public class BattleController
         this.enemyPokemon = enemyPokemon;
         this.playerPokemon = playerPokemon;
 
+
         move_1 = move1;
         move_2 = move2;
 
         this.enemyM1 = enemyM1;
         this.enemyM2 = enemyM2;
-
-
     }
 
 
@@ -106,33 +115,39 @@ public class BattleController
         {
             switch (id) {
                 case "move1_pane":
+                    animatePokemon(playerImage);
                     enemyPokemon.setPokemonHealth(enemyPokemon.getPokemonHealth() - move_1.getMoveDamage());
                     enemyHP_label.setText(checkIfDead(enemyPokemon));
 
+                    //Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    //alert.setTitle("PLAYER ATTACK");
+                    endTurn = true;
                     break;
                 case "move2_pane":
+                    animatePokemon(playerImage);
                     enemyPokemon.setPokemonHealth(enemyPokemon.getPokemonHealth() - move_2.getMoveDamage());
                     enemyHP_label.setText(checkIfDead(enemyPokemon));
-
+                    endTurn = true;
                     break;
             }
-            endTurn = true;
+
 
         }
 
-        Timer timer = new Timer();
-        TimerTask task = new TimerTask() {
-            @Override
-            public void run() {
-                playerPokemon.setPokemonHealth(playerPokemon.getPokemonHealth() - enemyM1.getMoveDamage());
-                playerHP_label.setText(checkIfDead(playerPokemon));
-            }
-        };
 
-        long delay = 5000; // Delay in milliseconds (3 seconds)
-        timer.schedule(task, delay);
+        PauseTransition delay = new PauseTransition(Duration.seconds(5));
+        delay.setOnFinished(waitEvent -> {
 
-        endTurn = false;
+            animatePokemon(enemyImage);
+            playerPokemon.setPokemonHealth(playerPokemon.getPokemonHealth() - enemyM1.getMoveDamage());
+            playerHP_label.setText(checkIfDead(playerPokemon));
+            endTurn = false;
+        });
+
+        delay.play();
+
+
+
 
     }
 
@@ -147,6 +162,17 @@ public class BattleController
         {
             return String.valueOf(pokemon.getPokemonHealth());
         }
+    }
+
+    private void animatePokemon(ImageView pokemonInput)
+    {
+        TranslateTransition bob = new TranslateTransition(Duration.seconds(0.25), pokemonInput);
+        bob.setByY(-20); // move up 10 pixels
+        bob.setAutoReverse(true);
+        bob.setCycleCount(4); // 0.25s * 4 = 1 second
+
+        // Start the animation
+        bob.play();
     }
 
     /*

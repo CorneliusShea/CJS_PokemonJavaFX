@@ -1,5 +1,7 @@
 package com.example.cjs_pokemonjava;
 
+import javafx.scene.image.Image;
+
 public class Pokemon
 {
     private int pokemonID;
@@ -9,6 +11,8 @@ public class Pokemon
     private int pokemonHealth;
 
     private int[] moves = new int[2];
+
+    private Image pokemonImage;
 
     public Pokemon(int pokemonID, String pokemonName, int pokemonHealth, int move1_id, int move2_id) {
         this.pokemonID = pokemonID;

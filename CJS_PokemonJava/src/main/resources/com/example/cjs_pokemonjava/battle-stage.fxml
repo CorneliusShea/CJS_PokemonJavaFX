@@ -12,12 +12,12 @@
    <children>
       <AnchorPane fx:id="battleStage_pane" layoutX="380.0" layoutY="170.0" prefHeight="540.0" prefWidth="960.0" styleClass="battleAnchor" stylesheets="@style.css" visible="false" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <ImageView fitHeight="300.0" fitWidth="400.0" layoutX="180.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="playerImage" fitHeight="300.0" fitWidth="400.0" layoutX="180.0" layoutY="340.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/Magikarp(test).png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="300.0" fitWidth="400.0" layoutX="646.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="enemyImage" fitHeight="300.0" fitWidth="400.0" layoutX="646.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/Magikarp(test).png" />
                </image>
